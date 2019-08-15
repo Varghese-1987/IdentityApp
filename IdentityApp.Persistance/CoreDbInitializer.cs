@@ -19,7 +19,7 @@ namespace IdentityApp.Persistance
             {
                 coreContext.Database.Migrate();
                 var userManager = serviceProvider.GetService<UserManager<AspNetUser>>();
-                if (!coreContext.AspNetUsers.Any(e => e.UserName.Equals("admin")))
+                if (!coreContext.AspNetUsers.Any(e => e.UserName.Equals("admin@admin.com")))
                 {
                     var user = new AspNetUser { UserName = "admin@admin.com", EmailConfirmed = true, Email = "admin@admin.com" };
                     IdentityResult result = userManager.CreateAsync(user, "DotNetDemo@1").Result;
